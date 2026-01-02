@@ -1,5 +1,5 @@
 <?php
-require_once("../config/connect.php");
+require_once("connect.php");
 require_once("util.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
