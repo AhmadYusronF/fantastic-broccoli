@@ -28,7 +28,7 @@
             } else {
                 $insert = "INSERT INTO ACCOUNT(EMAIL,PASSWORD) VALUES('$email','$password')";
                 if (mysqli_query($conn, $insert)) {
-                    Indikator("SUCCESS", "Akun berhasil dibuat!", "../index.html");
+                    Indikator("SUCCESS", "Akun berhasil dibuat!", "../login.html");
                 } else {
                     Indikator("ERROR", "Akun gagal dibuat!", "../register.html");
                 }

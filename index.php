@@ -1,0 +1,109 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tugas 3 Jasa Kelompok Genap</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="headerContainer">
+    <div class="logoContainer">
+      <img src="images/logo.jpg" class="logo" />
+    </div>
+
+    <div class="wrapper-header">
+      <div>
+        <h2 class="name">The Four Project</h2>
+      </div>
+
+      <div class="navContainer">
+        <div>
+          <a href="index.php" class="active">Beranda</a>
+          <a href="Jasa.php" class="nav">Jasa</a>
+          <a href="portofolio.php" class="nav">Portofolio</a>
+          <a href="alurPemesanan.php" class="nav">Alur Pemesanan</a>
+          <a href="detailJasa.php" class="nav">Detail Jasa</a>
+          <a href="tentangKami.php" class="nav">Tentang Kami</a>
+          <a href="faq.php" class="nav">FAQ</a>
+          <a href="kontak.php" class="nav">Pesan</a>
+        </div>
+
+        <div>
+          <?php
+          if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
+            echo '<a href="login.html" class="nav masuk">Masuk</a>';
+          } else {
+            echo '<a href="faq.php" class="nav">Pesanan Saya</a>
+          <a href="Database/account.php" class="nav">Account</a>';
+          }
+          ?>
+
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <center>
+    <img src="images/steptodown.com250100.jpg" width="1080px" />
+
+    <h1>Selamat Datang Di Website Kami</h1>
+
+    <h2>
+      Kami adalah mahasiswa yang bersemangat untuk berkarya dan memberikan
+      layanan profesional di bidang digital
+    </h2>
+
+    <p>
+      <font size="5" face="monospace">Kami memahami bahwa di era digital yang serba cepat ini, kehadiran
+        online yang kuat bukan lagi pilihan, melainkan suatu keharusan. Oleh
+        karena itu, tim kami hadir sebagai solusi lengkap untuk semua
+        kebutuhan digital bisnis Anda. Layanan kami mencakup spektrum luas,
+        mulai dari pengembangan website yang responsif dan berorientasi pada
+        pengguna, yang menjamin pengalaman terbaik bagi pengunjung, hingga
+        optimasi mesin pencari (SEO) yang cermat, memastikan konten Anda
+        ditemukan oleh target audiens yang tepat. Kami juga unggul dalam
+        desain grafis yang memukau, menciptakan identitas visual yang kohesif
+        dan berkesan, mulai dari logo, materi promosi, hingga aset media
+        sosial. Filosofi kami adalah memadukan estetika dengan fungsionalitas,
+        sehingga setiap proyek yang kami tangani tidak hanya indah dipandang,
+        tetapi juga efektif dalam mencapai tujuan bisnis Anda.</font>
+    </p>
+
+    <p>
+      <font size="5" face="monospace">Selain itu, kami sangat menguasai strategi pemasaran digital yang
+        inovatif. Kami percaya pada pendekatan berbasis data untuk kampanye
+        media sosial dan iklan berbayar (PPC), yang dirancang untuk
+        meningkatkan konversi dan memaksimalkan pengembalian investasi (ROI)
+        Anda. Sebagai mahasiswa yang selalu mengikuti tren teknologi terbaru,
+        kami membawa perspektif segar dan solusi modern yang mungkin belum
+        dijelajahi oleh agensi tradisional. Setiap anggota tim kami memiliki
+        keahlian spesifik—baik itu *front-end development*, *content
+        creation*, *UI/UX design*, atau *digital analytics*—yang kami
+        sinergikan untuk memberikan hasil terbaik. Kami berkomitmen untuk
+        bekerja sama dengan klien kami, mengubah ide mentah menjadi strategi
+        digital yang dapat diimplementasikan. Mari bersama-sama membangun dan
+        mengembangkan kehadiran digital bisnis Anda agar mampu bersaing dan
+        unggul di pasar global.</font>
+    </p>
+
+    <p>
+      <font size="5" face="monospace">Kami adalah sekelompok mahasiswa yang bersemangat dalam memberikan
+        layanan digital profesional — dari desain grafis hingga pemasaran
+        online. Kami percaya bahwa kreativitas dan teknologi dapat membawa
+        perubahan besar untuk bisnis Anda.</font>
+    </p>
+    <div class="footer" style="margin-top: 115px">
+      &copy; 2025 Kelompok 4. All Rights Reserved.
+    </div>
+  </center>
+</body>
+
+</html>

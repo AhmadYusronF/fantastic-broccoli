@@ -24,13 +24,15 @@
         $row = mysqli_fetch_assoc($result);
 
         if (!$row) {
-            Indikator("ERROR", "Email atau password salah!", "../index.html");
+            Indikator("ERROR", "Email atau password salah!", "../login.html");
         } else {
             if ($row['PASSWORD'] == $password) {
                 $_SESSION['UID'] = $row['ID'];
-                Indikator("Login Berhasil", "Selamat datang di website kami", "../beranda.html");
+                $_SESSION['EMAIL'] = $row['EMAIL'];
+                $_SESSION['PASSWORD'] = $row['PASSWORD'];
+                Indikator("Login Berhasil", "Selamat datang di website kami", "../index.php");
             } else {
-                Indikator("ERROR", "Email atau password salah!", "../index.html");
+                Indikator("ERROR", "Email atau password salah!", "../login.html");
             }
         }
     }

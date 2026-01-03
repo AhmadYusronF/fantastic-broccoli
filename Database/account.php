@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="../css/account.css" />
     <?php
     session_start();
+    if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
+        header("Location: ../index.html");
+        exit();
+    }
+
     require_once('connect.php');
     $UID = $_SESSION['UID'];
-    $query = "SELECT * FROM ACCOUNT WHERE ID=$UID";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
+    $EMAIL = $_SESSION['EMAIL'];
+    $PASSWORD = $_SESSION['PASSWORD'];
     ?>
+    <style>
+        body {
+            padding-top: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,18 +39,18 @@
 
             <div class="navContainer">
                 <div>
-                    <a href="../beranda.html" class="nav">Beranda</a>
-                    <a href="../Jasa.html" class="nav">Jasa</a>
-                    <a href="../portofolio.html" class="nav">Portofolio</a>
-                    <a href="../alurPemesanan.html" class="nav">Alur Pemesanan</a>
-                    <a href="../detailJasa.html" class="nav">Detail Jasa</a>
-                    <a href="../tentangKami.html" class="nav">Tentang Kami</a>
-                    <a href="../faq.html" class="nav">FAQ</a>
-                    <a href="../kontak.html" class="nav">Pesan</a>
+                    <a href="../index.php" class="nav">Beranda</a>
+                    <a href="../Jasa.php" class="nav">Jasa</a>
+                    <a href="../portofolio.php" class="nav">Portofolio</a>
+                    <a href="../alurPemesanan.php" class="nav">Alur Pemesanan</a>
+                    <a href="../detailJasa.php" class="nav">Detail Jasa</a>
+                    <a href="../tentangKami.php" class="nav">Tentang Kami</a>
+                    <a href="../faq.php" class="nav">FAQ</a>
+                    <a href="../kontak.php" class="nav">Pesan</a>
                 </div>
 
                 <div>
-                    <a href="faq.html" class="nav">Pesanan Saya</a><a href="faq.html" class="active">Account</a>
+                    <a href="faq.php" class="nav">Pesanan Saya</a><a href="faq.php" class="active">Account</a>
                 </div>
             </div>
         </div>
@@ -49,20 +58,21 @@
 
     <div class="wrapper">
         <div class="container">
-            <form action="Database/LoginHandler.php" method="post">
+            <form action="UpdateAccountHandler.php" method="post">
                 <label for="email">Email</label>
                 <p><?php
-                    echo $row['EMAIL'];
+                    echo $EMAIL;
                     ?></p>
                 <label for="password">Password</label>
                 <input
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Masukkan password"
+                    placeholder="<?php echo $PASSWORD ?>"
                     required />
                 <input type="submit" value="Simpan" />
             </form>
+            <a href="LogOutHandler.php" class="btn-keluar">Keluar</a>
         </div>
     </div>
 </body>
