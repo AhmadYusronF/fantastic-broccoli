@@ -50,7 +50,7 @@
                 </div>
 
                 <div>
-                    <a href="faq.php" class="nav">Pesanan Saya</a><a href="faq.php" class="active">Account</a>
+                    <a href="pesananSaya.php" class="nav">Pesanan Saya</a><a href="faq.php" class="active">Account</a>
                 </div>
             </div>
         </div>

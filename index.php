@@ -7,7 +7,7 @@ session_start();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tugas 3 Jasa Kelompok Genap</title>
+  <title>The Four Project</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -39,7 +39,7 @@ session_start();
           if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
             echo '<a href="login.html" class="nav masuk">Masuk</a>';
           } else {
-            echo '<a href="faq.php" class="nav">Pesanan Saya</a>
+            echo '<a href="Database/pesananSaya.php" class="nav">Pesanan Saya</a>
           <a href="Database/account.php" class="nav">Account</a>';
           }
           ?>
@@ -48,7 +48,7 @@ session_start();
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <center>

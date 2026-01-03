@@ -17,7 +17,7 @@ if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
 </head>
 
 <body>
-    <a href=""></a>
+    
     <?php
     require_once("connect.php");
     require_once("util.php");

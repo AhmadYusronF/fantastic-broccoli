@@ -193,6 +193,7 @@ tr[bgcolor="pink"] {
 
 /* --- Hubungi Kami --- */
 
+input,
 input[type="text"],
 select,
 textarea {
@@ -200,8 +201,17 @@ textarea {
   padding: 12px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
+  margin-top: 10px;
   margin-bottom: 15px;
   font-size: 1rem;
+}
+
+input:focus {
+  outline-color: #2563eb;
+}
+
+input:hover {
+  border-color: #2563eb;
 }
 
 input[type="submit"] {
@@ -226,4 +236,57 @@ input[type="submit"]:hover {
   border-top: 1px solid #e2e8f0;
   color: #94a3b8;
   font-size: 0.9rem;
+}
+
+.masuk {
+  background-color: #2563eb;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.masuk:hover {
+  color: white;
+  opacity: 0.7;
+}
+
+.btn-submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-reset {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.login-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 20px;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn-login {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
 }
