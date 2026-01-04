@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
-    header("Location: ../index.html");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -112,7 +112,11 @@ $result = mysqli_query($conn, $query);
                             <td><?php echo $row['pesan']; ?></td>
                             <td><strong><?php echo $row['status']; ?></strong></td>
                             <td>
-                                <a href="detail_pesanan.php?id=<?php echo $row['id']; ?>" class="btn-aksi">Detail</a>
+                                <?php if ($row['status'] == 'pending'): ?>
+                                    <a href="DeleteHandler.php?id=<?php echo $row['id']; ?>" class="btn-aksi">Delete</a>
+                                <?php else: ?>
+                                    <span class="btn-aksi-disabled" style="color: gray; cursor: not-allowed;">Delete</span>
+                                <?php endif; ?>
                             </td>
                         </tr>
                 <?php

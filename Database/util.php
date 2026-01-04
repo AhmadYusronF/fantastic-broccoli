@@ -26,4 +26,5 @@ function Indikator($alert, $message, $link)
         </div>
       </div>
     </div>';
+    exit();
 }

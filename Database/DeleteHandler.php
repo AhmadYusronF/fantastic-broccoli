@@ -19,23 +19,24 @@ if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
     <?php
     require_once("connect.php");
     require_once("util.php");
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $UID = $_SESSION['UID'];
-        $namaLenkap = $_POST['nama'];
-        $noHP = $_POST['nohp'];
-        $jasa = $_POST['jasa'];
-        $pesan = $_POST['pesan'];
 
-        $query = "INSERT INTO pesanan(UID,nama_lengkap,noHp,jasa,pesan) VALUES('$UID','$namaLenkap','$noHP','$jasa','$pesan')";
+    $id = $_GET['id'];
+    $statusCheck = "SELECT status FROM PESANAN WHERE id='$id'";
+    $status = ReturnSingleValue($conn, $statusCheck);
 
+    if ($status == "pending") {
 
-
+        $query = "DELETE FROM PESANAN WHERE id='$id'";
         $result = mysqli_query($conn, $query);
+
         if ($result) {
-            Indikator("SUCCESS", "Pesanan berhasil disimpan", "../kontak.php");
+            Indikator("SUCCESS", "Pesanan berhasil dihapus", "pesananSaya.php");
         } else {
-            Indikator("ERROR", "Pesanan gagal disimpan", "../kontak.php");
+            Indikator("ERROR", "Pesanan gagal dihapus", "pesananSaya.php");
         }
+    } else {
+        Indikator("ERROR", "Pesanan gagal dihapus karena status:" . $status, "pesananSaya.php");
     }
+
     ?>
 </body>
