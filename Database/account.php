@@ -11,7 +11,7 @@
     <?php
     session_start();
     if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
-        header("Location: ../index.php");
+        header("Location: ../index.html");
         exit();
     }
 

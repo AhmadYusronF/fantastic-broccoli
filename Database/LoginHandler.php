@@ -14,29 +14,33 @@ session_start();
 
 <body>
     <?php
-
     require_once("connect.php");
     require_once("util.php");
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
-        $password = $_POST['password'];
-
+        $password = $_POST['password']; 
 
         $Check = "SELECT * FROM ACCOUNT WHERE EMAIL='$email'";
         $result = mysqli_query($conn, $Check);
         $row = mysqli_fetch_assoc($result);
 
-        if (!$row) {
-            Indikator("ERROR", "Email atau password salah!", "../login.html");
-        } else {
-            if ($row['PASSWORD'] == $password) {
-                $_SESSION['UID'] = $row['ID'];
-                $_SESSION['EMAIL'] = $row['EMAIL'];
-                $_SESSION['PASSWORD'] = $row['PASSWORD'];
-                Indikator("Login Berhasil", "Selamat datang di website kami", "../index.php");
+
+        if ($row && password_verify($password, $row['PASSWORD'])) {
+
+
+            $_SESSION['UID'] = $row['ID'];
+            $_SESSION['EMAIL'] = $row['EMAIL'];
+            $_SESSION['PASSWORD'] = $password;
+
+            if ($email == "kelompok4@admin.com") {
+                Indikator("Login Berhasil", "Selamat datang kembali", "adminDashboard.php");
             } else {
-                Indikator("ERROR", "Email atau password salah!", "../login.html");
+                Indikator("Login Berhasil", "Selamat datang di website kami", "../index.php");
             }
+        } else {
+            // Either email doesn't exist or password_verify returned false
+            Indikator("ERROR", "Email atau password salah!", "../login.html");
         }
     }
     ?>

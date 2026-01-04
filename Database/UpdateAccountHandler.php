@@ -25,10 +25,11 @@ if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
         $UID = $_SESSION['UID'];
         $PASSWORD = $_SESSION['PASSWORD'];
         $newPassword = $_POST['password'];
+        $hashPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         if ($PASSWORD == $newPassword) {
             Indikator("ERROR", "Password sama dengan yang lama!", "account.php");
         } else {
-            $query = "UPDATE ACCOUNT SET PASSWORD ='$newPassword' WHERE ID ='$UID'";
+            $query = "UPDATE ACCOUNT SET PASSWORD ='$hashPassword' WHERE ID ='$UID'";
             $result = mysqli_query($conn, $query);
             if ($result) {
                 $_SESSION['PASSWORD'] = $newPassword;
