@@ -21,12 +21,12 @@ if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
     require_once("util.php");
 
     $id = $_GET['id'];
-    $statusCheck = "SELECT status FROM PESANAN WHERE id='$id'";
+    $statusCheck = "SELECT status FROM pesanan WHERE id='$id'";
     $status = ReturnSingleValue($conn, $statusCheck);
 
     if ($status == "pending") {
 
-        $query = "DELETE FROM PESANAN WHERE id='$id'";
+        $query = "DELETE FROM pesanan WHERE id='$id'";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
