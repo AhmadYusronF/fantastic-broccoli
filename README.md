@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/logo.jpg" width="200" title="Project Logo">
+</p>
+
 # The Four Project - Website Layanan Freelance
 
 **The Four Project** adalah sebuah platform berbasis web yang menghubungkan klien dengan penyedia jasa freelance profesional. Website ini dibangun untuk memenuhi tugas kelompok (**Kelompok 4**) dan mencakup berbagai fitur pemesanan jasa digital.
