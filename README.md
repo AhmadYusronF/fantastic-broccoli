@@ -110,5 +110,5 @@ Silakan registrasi akun baru melalui menu **Masuk** -> **Buat Akun**.
 ---
 
 ## © Kredit
-Dibuat oleh **Kelompok 4 - 2025**.  
+Dibuat oleh **Kelompok 4 - 2026**.  
 All Rights Reserved.
