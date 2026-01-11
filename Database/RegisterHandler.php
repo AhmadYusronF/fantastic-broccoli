@@ -23,14 +23,14 @@ session_start();
         $konfirmasiPassword = $_POST["konfirmasiPassword"];
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $emailCheck = "SELECT EMAIL FROM ACCOUNT WHERE EMAIL='$email'";
+        $emailCheck = "SELECT EMAIL FROM account WHERE EMAIL='$email'";
         if (ReturnSingleValue($conn, $emailCheck) == !null) {
             Indikator("ERROR", "Email sudah dipakai!", "../register.html");
         } else {
             if ($password != $konfirmasiPassword) {
                 Indikator("ERROR", "Pastikan kedua password sama!", "../register.html");
             } else {
-                $insert = "INSERT INTO ACCOUNT(EMAIL,PASSWORD) VALUES('$email','$hashPassword')";
+                $insert = "INSERT INTO account(EMAIL,PASSWORD) VALUES('$email','$hashPassword')";
                 if (mysqli_query($conn, $insert)) {
                     Indikator("SUCCESS", "Akun berhasil dibuat!", "../login.html");
                 } else {

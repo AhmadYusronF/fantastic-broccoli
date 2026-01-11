@@ -95,7 +95,6 @@ $result = mysqli_query($conn, $query);
                 <tr>
                     <th>No</th>
                     <th>Jasa</th>
-                    <th>Pesan</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -109,7 +108,7 @@ $result = mysqli_query($conn, $query);
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row['jasa']; ?></td>
-                            <td><?php echo $row['pesan']; ?></td>
+
                             <td> <?php if ($row['status'] == 'pending') { ?>
                                     <span class="status pending"><?php echo strtoupper($row['status']); ?></span>
                                 <?php } elseif ($row['status'] == 'Sedang Diproses') { ?>

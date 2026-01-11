@@ -19,9 +19,9 @@ session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
-        $password = $_POST['password']; 
+        $password = $_POST['password'];
 
-        $Check = "SELECT * FROM ACCOUNT WHERE EMAIL='$email'";
+        $Check = "SELECT * FROM account WHERE EMAIL='$email'";
         $result = mysqli_query($conn, $Check);
         $row = mysqli_fetch_assoc($result);
 
@@ -39,7 +39,6 @@ session_start();
                 Indikator("Login Berhasil", "Selamat datang di website kami", "../index.php");
             }
         } else {
-            // Either email doesn't exist or password_verify returned false
             Indikator("ERROR", "Email atau password salah!", "../login.html");
         }
     }

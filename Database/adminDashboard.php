@@ -54,8 +54,8 @@ $result = mysqli_query($conn, $query);
                 ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row['nama_lengkap']; ?></td>
                             <td><?php echo $row['tanggal']; ?></td>
+                            <td><?php echo $row['nama_lengkap']; ?></td>
                             <td><?php echo $row['noHP']; ?></td>
                             <td><?php echo $row['jasa']; ?></td>
                             <td><a class="lihatDetail" href="detailPesanan.php?id=<?php echo $row['id']; ?>">Lihat Detail</a></td>
