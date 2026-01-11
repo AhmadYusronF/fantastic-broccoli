@@ -110,13 +110,18 @@ $result = mysqli_query($conn, $query);
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row['jasa']; ?></td>
                             <td><?php echo $row['pesan']; ?></td>
-                            <td><strong><?php echo $row['status']; ?></strong></td>
+                            <td> <?php if ($row['status'] == 'pending') { ?>
+                                    <span class="status pending"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } elseif ($row['status'] == 'Sedang Diproses') { ?>
+                                    <span class="status diproses"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } else { ?>
+                                    <span class="status selesai"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } ?>
+                            </td>
                             <td>
-                                <?php if ($row['status'] == 'pending'): ?>
-                                    <a href="DeleteHandler.php?id=<?php echo $row['id']; ?>" class="btn-aksi">Delete</a>
-                                <?php else: ?>
-                                    <span class="btn-aksi-disabled" style="color: gray; cursor: not-allowed;">Delete</span>
-                                <?php endif; ?>
+
+                                <a href="detailPesanan.php?id=<?php echo $row['id']; ?>" class="lihatDetail">Lihat detail</a>
+
                             </td>
                         </tr>
                 <?php

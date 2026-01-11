@@ -290,3 +290,30 @@ input[type="submit"]:hover {
   border-radius: 4px;
   margin-top: 10px;
 }
+
+.lihatDetail {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  background-color: #cdd9f5;
+  padding: 0 15px;
+  height: 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.77rem;
+}
+.pending {
+  color: #ebac25;
+  background-color: #ffeec9;
+}
+
+.selesai {
+  color: #25eb46;
+  background-color: #b1f7bd;
+}
