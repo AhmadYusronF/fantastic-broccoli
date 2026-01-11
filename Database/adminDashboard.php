@@ -43,6 +43,7 @@ $result = mysqli_query($conn, $query);
                     <th>Nama Lenkap</th>
                     <th>No Hp</th>
                     <th>Jasa</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -58,6 +59,14 @@ $result = mysqli_query($conn, $query);
                             <td><?php echo $row['nama_lengkap']; ?></td>
                             <td><?php echo $row['noHP']; ?></td>
                             <td><?php echo $row['jasa']; ?></td>
+                            <td><?php if ($row['status'] == 'pending') { ?>
+                                    <span class="status pending"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } elseif ($row['status'] == 'Sedang Diproses') { ?>
+                                    <span class="status diproses"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } else { ?>
+                                    <span class="status selesai"><?php echo strtoupper($row['status']); ?></span>
+                                <?php } ?>
+                            </td>
                             <td><a class="lihatDetail" href="detailPesanan.php?id=<?php echo $row['id']; ?>">Lihat Detail</a></td>
                         </tr>
                 <?php
