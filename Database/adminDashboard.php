@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['UID']) || empty($_SESSION['UID'])) {
+if (!isset($_SESSION['UID']) || empty($_SESSION['UID']) || $_SESSION['EMAIL'] !== "kelompok4@admin.com") {
     header("Location: ../index.php");
     exit();
 }
