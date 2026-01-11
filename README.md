@@ -72,6 +72,14 @@ CREATE TABLE pesanan (
     FOREIGN KEY (UID) REFERENCES ACCOUNT(ID)
 );
 
+--Pesanan Update
+CREATE TABLE `pesanan_update` (
+  `id_update` int(11) NOT NULL,
+  `id_pesanan` int(11) NOT NULL,
+  `informasi` text NOT NULL,
+  `tanggal_update` timestamp NOT NULL DEFAULT current_timestamp(),
+  `judul_update` varchar(125) DEFAULT NULL
+)
 ```
 ### 3. Konfigurasi Koneksi (Opsional)
 File konfigurasi database berada di `Database/connect.php`. Secara default, settingannya adalah:
